@@ -1,6 +1,11 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+
+#include <stdio.h>
+#include <stdlib.h>
+
+#define MAX_LINE 1024 /* maximum line buffer */
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
