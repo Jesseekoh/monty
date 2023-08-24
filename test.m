@@ -1,1 +1,4 @@
-push 3a Push 0 onto the stack
+push 1
+push 2
+push 3
+pall
