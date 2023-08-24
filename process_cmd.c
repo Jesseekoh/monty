@@ -4,6 +4,7 @@
  * process_cmd - process a command
  * @cmd: command
  * @line_no: number to add to stack
+ * @f_ptr: file pointer
  */
 void process_cmd(char *cmd, unsigned int line_no, FILE *f_ptr)
 {
@@ -14,7 +15,8 @@ void process_cmd(char *cmd, unsigned int line_no, FILE *f_ptr)
 
 	av[0] = strtok(cmd, " \t\r\n\v\f");
 
-	if (av[0] == NULL){
+	if (av[0] == NULL)
+	{
 		/* printf("is Null"); */
 		return;
 	}
@@ -43,11 +45,9 @@ void process_cmd(char *cmd, unsigned int line_no, FILE *f_ptr)
 					fprintf(stderr, "L%d: usage: push integer\n", line_no);
 					exit(EXIT_FAILURE);
 				}
-				
 			}
 			i++;
 		}
-		
 		value = (unsigned int)atoi(av[1]);
 	}
 
