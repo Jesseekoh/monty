@@ -18,7 +18,7 @@ void process_cmd(char *cmd, unsigned int line_no)
 		/* printf("is Null"); */
 		return;
 	}
-	av[1] = strtok(NULL, " \t\n\f");
+	av[1] = strtok(NULL, " \t\r\n\v\f");
 
 
 	func = cmd_identifier(av[0]);
