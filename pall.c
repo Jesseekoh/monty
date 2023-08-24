@@ -14,12 +14,7 @@ void pall(stack_t **stack, unsigned int line_number)
 
 	while (current)
 	{
-		if (current->next == NULL)
-		{
-			fprintf(stderr, "%d", current->n);
-		}
-		else
-			fprintf(stderr, "%d\n", current->n);
+		fprintf(stdout, "%d", current->n);
 		current = current->next;
 	}
 }
