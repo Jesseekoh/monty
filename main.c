@@ -1,28 +1,23 @@
-#include "main.h"
+#include "monty.h"
 
+/**
+ * main - Entry point (execution start from here)
+ * @argc: argument count
+ * @argv: argument vector
+ * Return: 0 (Sucess)
+ */
 int main(int argc, char *argv[])
 {
-	char line_buffer[MAX_LINE];
-
-	printf("%d\n", argc);
 	if (argc != 2)
 	{
-		dprintf(2, "USAGE: monty file");
+		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
 
-	FILE *fd = fopen(argv[1], "r");
 
-	if (fd == NULL)
-	{
-		dprintf(2, "Error: Can't open file %s", argv[1]);
-		exit(EXIT_FAILURE);
-	}
-	while (fgets(line_buffer, MAX_LINE, fd))
-	{
-		/* code */
-		printf("%s", line_buffer);
-	}
+	open_file(argv[1]);
 
-	fclose(fd);
+	return (EXIT_SUCCESS);
 }
+
+stack_t *head = NULL;

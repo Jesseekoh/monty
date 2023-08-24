@@ -1,0 +1,24 @@
+#include "monty.h"
+
+/**
+ * read_lines - read line from a file
+ * @file_ptr: file pointer
+ */
+void read_lines(FILE *file_ptr)
+{
+	unsigned int line = 1;
+	char buffer[1024];
+
+	while (fgets(buffer, 1024, file_ptr) != NULL)
+	{
+		if (*buffer == '\n')
+			continue;
+
+
+		buffer[strlen(buffer) - 1] = '\0';
+
+
+		process_cmd(buffer, line);
+		line++;
+	}
+}

@@ -1,11 +1,12 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-
 #include <stdio.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <string.h>
 #include <stdlib.h>
 
-#define MAX_LINE 1024 /* maximum line buffer */
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -22,6 +23,9 @@ typedef struct stack_s
         struct stack_s *next;
 } stack_t;
 
+
+extern stack_t *head;
+
 /**
  * struct instruction_s - opcode and its function
  * @opcode: the opcode
@@ -36,4 +40,11 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+
+void read_lines(FILE *file_ptr);
+void (*cmd_identifier(char *opcode))(stack_t **stack, unsigned int line_number);
+void push(stack_t **stack, unsigned int line_number);
+void process_cmd(char *cmd, unsigned int line_no);
+void pall(stack_t **stack, unsigned int line_number);
+void open_file(char *pathname);
 #endif
