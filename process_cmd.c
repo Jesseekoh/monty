@@ -34,8 +34,12 @@ void process_cmd(char *cmd, unsigned int line_no)
 		{
 			if (av[1][i] > 57 || av[1][i] < 48)
 			{
-				fprintf(stderr, "L%d: usage: push integer\n", line_no);
-				exit(EXIT_FAILURE);
+				if (av[1][i] != '-')
+				{
+					fprintf(stderr, "L%d: usage: push integer\n", line_no);
+					exit(EXIT_FAILURE);
+				}
+				
 			}
 			i++;
 		}
