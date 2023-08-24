@@ -19,4 +19,6 @@ void open_file(char *pathname)
 	read_lines(fd);
 
 	fclose(fd);
+
+	free_stack(head);
 }

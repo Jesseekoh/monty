@@ -5,7 +5,7 @@
  * @cmd: command
  * @line_no: number to add to stack
  */
-void process_cmd(char *cmd, unsigned int line_no)
+void process_cmd(char *cmd, unsigned int line_no, FILE *f_ptr)
 {
 	int i = 0;
 	char *av[2];
@@ -25,6 +25,8 @@ void process_cmd(char *cmd, unsigned int line_no)
 
 	if (func == NULL)
 	{
+		fclose(f_ptr);
+		free_stack(head);
 		fprintf(stderr, "L%d: unknown instruction %s\n", line_no, av[0]);
 		exit(EXIT_FAILURE);
 	}
@@ -36,6 +38,8 @@ void process_cmd(char *cmd, unsigned int line_no)
 			{
 				if (av[1][i] != '-')
 				{
+					fclose(f_ptr);
+					free_stack(head);
 					fprintf(stderr, "L%d: usage: push integer\n", line_no);
 					exit(EXIT_FAILURE);
 				}
