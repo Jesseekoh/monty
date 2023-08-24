@@ -28,7 +28,7 @@ void process_cmd(char *cmd, unsigned int line_no)
 		fprintf(stderr, "L%d: unknown instruction %s\n", line_no, av[0]);
 		exit(EXIT_FAILURE);
 	}
-	if (av[1])
+	if (av[1] && strcmp("pall", av[0]) != 0)
 	{
 		while (av[1][i] != '\0')
 		{

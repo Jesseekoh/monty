@@ -11,9 +11,9 @@ void read_lines(FILE *file_ptr)
 
 	while (fgets(buffer, 1024, file_ptr) != NULL)
 	{
-		if (*buffer == '\n')
+		/*if (*buffer == '\n')
 			continue;
-
+			*/
 
 		buffer[strlen(buffer)] = '\0';
 
