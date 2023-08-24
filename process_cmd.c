@@ -7,12 +7,18 @@
  */
 void process_cmd(char *cmd, unsigned int line_no)
 {
+	int i = 0;
 	char *av[2];
 	void (*func)(stack_t **stack, unsigned int line_number);
 	unsigned int value = 0;
 
-	av[0] = strtok(cmd, " ");
-	av[1] = strtok(NULL, " ");
+	av[0] = strtok(cmd, " \t\r\n\v\f");
+
+	if (av[0] == NULL){
+		/* printf("is Null"); */
+		return;
+	}
+	av[1] = strtok(NULL, " \t\n\f");
 
 
 	func = cmd_identifier(av[0]);
@@ -23,7 +29,19 @@ void process_cmd(char *cmd, unsigned int line_no)
 		exit(EXIT_FAILURE);
 	}
 	if (av[1])
+	{
+		while (av[1][i] != '\0')
+		{
+			if (av[1][i] > 57 || av[1][i] < 48)
+			{
+				fprintf(stderr, "L%d: usage: push integer", line_no);
+				exit(EXIT_FAILURE);
+			}
+			i++;
+		}
+		
 		value = (unsigned int)atoi(av[1]);
+	}
 
 	/*  Run the command */
 	func(&head, value);

@@ -15,9 +15,9 @@ void read_lines(FILE *file_ptr)
 			continue;
 
 
-		buffer[strlen(buffer) - 1] = '\0';
+		buffer[strlen(buffer)] = '\0';
 
-
+		/* printf("%s\n", buffer); */
 		process_cmd(buffer, line);
 		line++;
 	}
