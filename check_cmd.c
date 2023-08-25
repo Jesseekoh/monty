@@ -16,7 +16,8 @@ int check_cmd(char *cmd)
 	(strcmp("mul", cmd) != 0) &&
 	(strcmp("mod", cmd) != 0) &&
 	(strcmp("pchar", cmd) != 0) &&
-	(strcmp("pstr", cmd) != 0))
+	(strcmp("pstr", cmd) != 0) &&
+	(strcmp("rotl", cmd) != 0))
 		return (1);
 
 	return (0);
