@@ -30,7 +30,7 @@ void swap(stack_t **stack, unsigned int line_number)
 		fclose(command_struct.file);
 		free_stack(*stack);
 		fprintf(stderr, "L%d: can't swap, stack too short\n",
-				line_number);
+				command_struct.line_number);
 		exit(EXIT_FAILURE);
 	}
 }
