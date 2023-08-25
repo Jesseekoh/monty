@@ -1,6 +1,6 @@
 #include "monty.h"
 
-mon_t command_struct = {NULL, NULL};
+mon_t command_struct = {NULL, NULL, 1};
 /**
  * main - Entry point (execution start from here)
  * @argc: argument count

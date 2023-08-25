@@ -5,7 +5,7 @@
  */
 void read_lines(void)
 {
-	unsigned int line = 1;
+
 	char buffer[1024];
 
 	while (fgets(buffer, 1024, command_struct.file) != NULL)
@@ -13,7 +13,7 @@ void read_lines(void)
 		buffer[strlen(buffer)] = '\0';
 
 		/* printf("%s\n", buffer); */
-		process_cmd(buffer, line);
-		line++;
+		process_cmd(buffer, command_struct.line_number);
+		command_struct.line_number++;
 	}
 }

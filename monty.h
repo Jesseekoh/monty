@@ -43,6 +43,7 @@ typedef struct mon_s
 {
 	stack_t *head;
 	FILE *file;
+	unsigned int line_number;
 } mon_t;
 
 extern mon_t command_struct;
