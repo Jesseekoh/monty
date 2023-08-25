@@ -15,7 +15,7 @@ void m_div(stack_t **stack, unsigned int line_number)
 	{
 		if ((*stack)->n == 0)
 		{
-			fprintf(stderr, "L%d: division by zero",
+			fprintf(stderr, "L%d: division by zero\n",
 			command_struct.line_number);
 		}
 		tmp = *stack;
