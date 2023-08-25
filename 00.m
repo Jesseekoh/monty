@@ -9,5 +9,5 @@ push -8
 push -9
        push               -2
             push        2
-push 3a
+push 3
 pall fdf
