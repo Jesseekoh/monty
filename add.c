@@ -27,6 +27,7 @@ void add(stack_t **stack, unsigned int line_number)
 		fclose(command_struct.file);
 		fprintf(stderr, "L%d: can't add, stack too short\n",
 		command_struct.line_number);
+		exit(EXIT_FAILURE);
 	}
 
 }
