@@ -13,7 +13,8 @@ int check_cmd(char *cmd)
 	(strcmp("nop", cmd) != 0) &&
 	(strcmp("sub", cmd) != 0) &&
 	(strcmp("div", cmd) != 0) &&
-	(strcmp("mul", cmd) != 0))
+	(strcmp("mul", cmd) != 0) &&
+	(strcmp("mod", cmd) != 0))
 		return (1);
 
 	return (0);

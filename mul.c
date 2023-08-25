@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * m_mul - add first two elements of a stack
+ * m_mul - multiply first two elements of a stack
  * @stack: stack
  * @line_number: line number
 */

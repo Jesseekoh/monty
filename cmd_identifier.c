@@ -19,6 +19,7 @@ void (*cmd_identifier(char *opcode))(stack_t **stack, unsigned int line_number)
 		{"sub", sub},
 		{"div", m_div},
 		{"mul", m_mul},
+		{"mod", m_mod},
 		{NULL, NULL}
 	};
 
