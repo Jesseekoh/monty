@@ -1,11 +1,11 @@
 #include "monty.h"
 
 /**
- * m_mod - mod first two elements of a stack
+ * mod - mod first two elements of a stack
  * @stack: stack
  * @line_number: line number
 */
-void m_mod(stack_t **stack, unsigned int line_number)
+void mod(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmp;
 	int result = 0;
@@ -17,8 +17,8 @@ void m_mod(stack_t **stack, unsigned int line_number)
 		{
 			fprintf(stderr, "L%d: division by zero\n",
 			command_struct.line_number);
-			free_stack(*stack);
 			fclose(command_struct.file);
+			free_stack(*stack);
 			exit(EXIT_FAILURE);
 		}
 		tmp = *stack;
