@@ -60,6 +60,7 @@ void pop(stack_t **stack, unsigned int line_number);
 void swap(stack_t **stack, unsigned int line_number);
 void add(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
+void sub(stack_t **stack, unsigned int line_number);
 void free_stack(stack_t *stack);
 int _strcmp(char *str1, char *str2);
 void open_file(char *pathname);
