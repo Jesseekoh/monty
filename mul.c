@@ -14,7 +14,7 @@ void m_mul(stack_t **stack, unsigned int line_number)
 	if (*stack && (*stack)->next)
 	{
 		tmp = *stack;
-		result = tmp->n + (*stack)->next->n;
+		result = tmp->n * (*stack)->next->n;
 
 		*stack = (*stack)->next;
 		(*stack)->n = result;
