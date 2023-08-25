@@ -13,7 +13,7 @@ void pop(stack_t **stack, unsigned int line_number)
 	if (*stack == NULL)
 	{
 		fclose(command_struct.file);
-		fprintf(stderr, "L%d: can't pop an empty stack",
+		fprintf(stderr, "L%d: can't pop an empty stack\n",
 command_struct.line_number);
 		exit(EXIT_FAILURE);
 	}
