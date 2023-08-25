@@ -50,6 +50,7 @@ extern mon_t command_struct;
 
 
 void read_lines(void);
+int is_comment(char *cmd);
 void (*cmd_identifier(char *opcode))(stack_t **stack, unsigned int line_number);
 void push(stack_t **stack, unsigned int line_number);
 void process_cmd(char *cmd, unsigned int line_no);

@@ -54,10 +54,11 @@ void process_cmd(char *cmd, unsigned int line_no)
 	av[0] = strtok(cmd, " \t\r\n\v\f");
 
 	if (av[0] == NULL)
-	{
-		/* printf("is Null"); */
 		return;
-	}
+
+	if (is_comment(av[0]) == 0)
+		return;
+
 	av[1] = strtok(NULL, " \t\r\n\v\f");
 
 
