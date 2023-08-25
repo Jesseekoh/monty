@@ -50,6 +50,8 @@ extern mon_t command_struct;
 
 
 void pchar(stack_t **stack, unsigned int line_number);
+int ascii_range(int element);
+void pstr(stack_t **stack, unsigned int line_number);
 void read_lines(void);
 int is_comment(char *cmd);
 void (*cmd_identifier(char *opcode))(stack_t **stack, unsigned int line_number);

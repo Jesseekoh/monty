@@ -16,8 +16,7 @@ void pchar(stack_t **stack, unsigned int line_number)
 		command_struct.line_number);
 		exit(EXIT_FAILURE);
 	}
-	else if (((*stack)->n < 65 || (*stack)->n > 90) &&
-	((*stack)->n < 97 || (*stack)->n > 122))
+	else if (ascii_range((*stack)->n))
 	{
 		fclose(command_struct.file);
 		free_stack(*stack);
@@ -27,4 +26,19 @@ void pchar(stack_t **stack, unsigned int line_number)
 	}
 
 	fprintf(stdout, "%c\n", (*stack)->n);
+}
+
+/**
+ * ascii_range - check if a value is between a valid
+ * valid character ascii table
+ * @element: the value to check for
+ * Return: 1 (True) 0 (False)
+ */
+int ascii_range(int element)
+{
+	if ((element < 65 || element > 90) &&
+	(element < 97 || element > 122))
+		return (1);
+
+	return (0);
 }
