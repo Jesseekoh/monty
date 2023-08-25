@@ -11,7 +11,7 @@ unsigned int argument_check(char *av[], unsigned int line_no)
 	unsigned int value = 0;
 	int i;
 
-	if (strcmp("pall", av[0]) != 0 && strcmp("pint", av[0]) != 0)
+	if (check_cmd(av[0]) != 0)
 	{
 		if (av[1] == NULL)
 		{
