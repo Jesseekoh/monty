@@ -12,8 +12,15 @@ unsigned int argument_check(char *av[], FILE *f_ptr, unsigned int line_no)
 	unsigned int value = 0;
 	int i;
 
-	if (av[1] && strcmp("pall", av[0]) != 0)
+	if (strcmp("pall", av[0]) != 0)
 	{
+		if (av[1] == NULL)
+		{
+			fclose(f_ptr);
+			free_stack(head);
+			fprintf(stderr, "L%d: usage: push integer\n", line_no);
+			exit(EXIT_FAILURE);
+		}
 		i = 0;
 		while (av[1][i] != '\0')
 		{
