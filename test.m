@@ -1,5 +1,6 @@
-push     2
-
-                
-    push       1024                          
-push
+push 1
+pint
+push 2
+pint
+push 3
+pint

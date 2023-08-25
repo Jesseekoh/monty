@@ -12,7 +12,7 @@ unsigned int argument_check(char *av[], FILE *f_ptr, unsigned int line_no)
 	unsigned int value = 0;
 	int i;
 
-	if (strcmp("pall", av[0]) != 0)
+	if (strcmp("pall", av[0]) != 0 && strcmp("pint", av[0]) != 0)
 	{
 		if (av[1] == NULL)
 		{

@@ -47,6 +47,7 @@ void push(stack_t **stack, unsigned int line_number);
 void process_cmd(char *cmd, unsigned int line_no, FILE *f_ptr);
 unsigned int argument_check(char *av[], FILE *f_ptr, unsigned int line_no);
 void pall(stack_t **stack, unsigned int line_number);
+void pint(stack_t **stack, unsigned int line_number);
 void free_stack(stack_t *stack);
 int _strcmp(char *str1, char *str2);
 void open_file(char *pathname);
