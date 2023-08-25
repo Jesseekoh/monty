@@ -3,7 +3,6 @@
 /**
  * argument_check - check the command command argument
  * @av: argument vector
- * @f_ptr: file pointer
  * @line_no: current command line numeber
  * Return: a valid argument
  */
@@ -45,7 +44,6 @@ unsigned int argument_check(char *av[], unsigned int line_no)
  * process_cmd - process a command
  * @cmd: command
  * @line_no: number to add to stack
- * @f_ptr: file pointer
  */
 void process_cmd(char *cmd, unsigned int line_no)
 {

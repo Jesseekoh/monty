@@ -2,7 +2,6 @@
 
 /**
  * read_lines - read line from a file
- * @file_ptr: file pointer
  */
 void read_lines(void)
 {
