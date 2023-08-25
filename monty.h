@@ -24,7 +24,6 @@ typedef struct stack_s
 } stack_t;
 
 
-extern stack_t *head;
 
 /**
  * struct instruction_s - opcode and its function
@@ -40,12 +39,20 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+typedef struct mon_s
+{
+	stack_t *head;
+	FILE *file;
+} mon_t;
 
-void read_lines(FILE *file_ptr);
+extern mon_t command_struct;
+
+
+void read_lines(void);
 void (*cmd_identifier(char *opcode))(stack_t **stack, unsigned int line_number);
 void push(stack_t **stack, unsigned int line_number);
-void process_cmd(char *cmd, unsigned int line_no, FILE *f_ptr);
-unsigned int argument_check(char *av[], FILE *f_ptr, unsigned int line_no);
+void process_cmd(char *cmd, unsigned int line_no);
+unsigned int argument_check(char *av[], unsigned int line_no);
 void pall(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
 void free_stack(stack_t *stack);

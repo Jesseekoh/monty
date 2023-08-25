@@ -1,5 +1,6 @@
 #include "monty.h"
 
+
 /**
  * open_file - open a file
  * @pathname: character pointer to the full pathname
@@ -7,18 +8,16 @@
  */
 void open_file(char *pathname)
 {
-	FILE *fd;
-
-	fd = fopen(pathname, "r");
-	if (fd == NULL)
+	command_struct.file = fopen(pathname, "r");
+	if (command_struct.file == NULL)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", pathname);
 		exit(EXIT_FAILURE);
 	}
 
-	read_lines(fd);
+	read_lines();
 
-	fclose(fd);
+	fclose(command_struct.file);
 
-	free_stack(head);
+	free_stack(command_struct.head);
 }

@@ -1,5 +1,6 @@
 #include "monty.h"
 
+mon_t command_struct = {NULL, NULL};
 /**
  * main - Entry point (execution start from here)
  * @argc: argument count
@@ -19,5 +20,3 @@ int main(int argc, char *argv[])
 
 	return (EXIT_SUCCESS);
 }
-
-stack_t *head = NULL;

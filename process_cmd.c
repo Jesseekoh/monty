@@ -7,7 +7,7 @@
  * @line_no: current command line numeber
  * Return: a valid argument
  */
-unsigned int argument_check(char *av[], FILE *f_ptr, unsigned int line_no)
+unsigned int argument_check(char *av[], unsigned int line_no)
 {
 	unsigned int value = 0;
 	int i;
@@ -16,8 +16,8 @@ unsigned int argument_check(char *av[], FILE *f_ptr, unsigned int line_no)
 	{
 		if (av[1] == NULL)
 		{
-			fclose(f_ptr);
-			free_stack(head);
+			fclose(command_struct.file);
+			free_stack(command_struct.head);
 			fprintf(stderr, "L%d: usage: push integer\n", line_no);
 			exit(EXIT_FAILURE);
 		}
@@ -28,8 +28,8 @@ unsigned int argument_check(char *av[], FILE *f_ptr, unsigned int line_no)
 			{
 				if (av[1][i] != '-')
 				{
-					fclose(f_ptr);
-					free_stack(head);
+					fclose(command_struct.file);
+					free_stack(command_struct.head);
 					fprintf(stderr, "L%d: usage: push integer\n", line_no);
 					exit(EXIT_FAILURE);
 				}
@@ -47,7 +47,7 @@ unsigned int argument_check(char *av[], FILE *f_ptr, unsigned int line_no)
  * @line_no: number to add to stack
  * @f_ptr: file pointer
  */
-void process_cmd(char *cmd, unsigned int line_no, FILE *f_ptr)
+void process_cmd(char *cmd, unsigned int line_no)
 {
 	char *av[2];
 	void (*func)(stack_t **stack, unsigned int line_number);
@@ -67,15 +67,15 @@ void process_cmd(char *cmd, unsigned int line_no, FILE *f_ptr)
 
 	if (func == NULL)
 	{
-		fclose(f_ptr);
-		free_stack(head);
+		fclose(command_struct.file);
+		free_stack(command_struct.head);
 		fprintf(stderr, "L%d: unknown instruction %s\n", line_no, av[0]);
 		exit(EXIT_FAILURE);
 	}
-	value = argument_check(av, f_ptr, line_no);
+	value = argument_check(av, line_no);
 
 
 	/*  Run the command */
-	func(&head, value);
+	func(&command_struct.head, value);
 
 }
