@@ -11,7 +11,8 @@ void pint(stack_t **stack, unsigned int line_number)
 	if (*stack == NULL)
 	{
 		fclose(command_struct.file);
-		fprintf(stderr, "L%d: can't pint, stack empty\n", command_struct.line_number);
+		fprintf(stderr, "L%d: can't pint, stack empty\n",
+command_struct.line_number);
 		exit(EXIT_FAILURE);
 	}
 		fprintf(stdout, "%d\n", (*stack)->n);
