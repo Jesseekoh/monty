@@ -11,7 +11,8 @@ int check_cmd(char *cmd)
 	(strcmp("pop", cmd) != 0) && (strcmp("swap", cmd) != 0) &&
 	(strcmp("add", cmd) != 0) &&
 	(strcmp("nop", cmd) != 0) &&
-	(strcmp("sub", cmd) != 0))
+	(strcmp("sub", cmd) != 0) &&
+	(strcmp("div", cmd) != 0))
 		return (1);
 
 	return (0);
