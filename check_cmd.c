@@ -8,7 +8,8 @@
 int check_cmd(char *cmd)
 {
 	if ((strcmp("pall", cmd) != 0) && (strcmp("pint", cmd) != 0) &&
-	(strcmp("pop", cmd) != 0) && (strcmp("swap", cmd) != 0))
+	(strcmp("pop", cmd) != 0) && (strcmp("swap", cmd) != 0) &&
+	(strcmp("add", cmd)))
 		return (1);
 
 	return (0);
