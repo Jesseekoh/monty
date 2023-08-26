@@ -9,6 +9,12 @@ void push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new_node;
 
+	if (!command_struct.is_stack)
+	{
+		/* add to queue */
+		enqueue(stack, line_number);
+		return;
+	}
 	new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
 	{

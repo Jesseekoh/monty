@@ -56,11 +56,13 @@ void process_cmd(char *cmd, unsigned int line_no)
 	if (av[0] == NULL)
 		return;
 
+	if (switch_mode(av[0]))
+		return;
+
 	if (is_comment(av[0]) == 0)
 		return;
 
 	av[1] = strtok(NULL, " \t\r\n\v\f");
-
 
 	func = cmd_identifier(av[0]);
 
@@ -73,8 +75,6 @@ void process_cmd(char *cmd, unsigned int line_no)
 	}
 	value = argument_check(av, line_no);
 
-
 	/*  Run the command */
 	func(&command_struct.head, value);
-
 }

@@ -2,6 +2,7 @@
 #define MAIN_H
 
 #include <stdio.h>
+#include <stdbool.h>
 #include <unistd.h>
 #include <fcntl.h>
 #include <string.h>
@@ -39,17 +40,22 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-typedef struct mon_s
+typedef struct mont_st
 {
 	stack_t *head;
 	FILE *file;
 	unsigned int line_number;
+	bool is_stack;
 } mon_t;
 
 extern mon_t command_struct;
 
 
 void pchar(stack_t **stack, unsigned int line_number);
+int switch_mode(char *cmd);
+void p_queue(stack_t **queue);
+void add_queue(stack_t **queue);
+void enqueue(stack_t **queue, unsigned int line_number);
 int ascii_range(int element);
 void pstr(stack_t **stack, unsigned int line_number);
 void rotl(stack_t **stack, unsigned int line_number);
@@ -61,6 +67,7 @@ void push(stack_t **stack, unsigned int line_number);
 void process_cmd(char *cmd, unsigned int line_no);
 unsigned int argument_check(char *av[], unsigned int line_no);
 void pall(stack_t **stack, unsigned int line_number);
+void dequeue(stack_t **queue);
 void pint(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
 void swap(stack_t **stack, unsigned int line_number);
